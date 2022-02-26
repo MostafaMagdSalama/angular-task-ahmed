@@ -14,7 +14,7 @@ export class FakeApiInterceptor implements HttpInterceptor{
       if(req.method=="POST"  && req.url=="http://localhost:4200/login")
       {
         console.log(req.body)
-        if(req.body.email=="mostafa.magdy621@gmail.com"&& req.body.password=='donia')
+        if(req.body.email=="mostafa.magdy621@gmail.com"&& req.body.password=='mostafa')
         {
           console.log('authenticated')
           return of(new HttpResponse({
