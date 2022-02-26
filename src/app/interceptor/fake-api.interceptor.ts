@@ -21,7 +21,7 @@ export class FakeApiInterceptor implements HttpInterceptor{
             status:200 , 
             body:{
               success:true,
-              data:{id:1, name:'donia', email:'donia@gmail.com',role:'alby'},
+              data:{id:1, name:'mostafa', email:'mostafa@gmail.com',role:'softwareE'},
               token:
                                 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJuYW1lIjoiQWhtZWQiLCJlbWFpbCI6ImFAYS5jb20ifQ.2RxoWmDADR8sLfW6CGRcthcuXDk5jQCqxx7kx8rLzjA'
               ,}
