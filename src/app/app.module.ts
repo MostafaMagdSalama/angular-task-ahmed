@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -11,6 +11,8 @@ import { UserDataComponent } from './components/user-data/user-data.component';
 import { UsersHeaderComponent } from './components/users-header/users-header.component';
 import { UsersListComponent } from './components/users-list/users-list.component';
 import { AlbumPhotosComponent } from './components/album-photos/album-photos.component';
+import { FakeApiInterceptor } from './interceptor/fake-api.interceptor';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { AlbumPhotosComponent } from './components/album-photos/album-photos.com
     UsersListComponent,
     UserDataComponent,
     AlbumsListComponent,
-    AlbumPhotosComponent
+    AlbumPhotosComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +31,11 @@ import { AlbumPhotosComponent } from './components/album-photos/album-photos.com
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [{
+    provide:HTTP_INTERCEPTORS,
+    useClass:FakeApiInterceptor,
+    multi:true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
