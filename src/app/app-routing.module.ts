@@ -7,11 +7,15 @@ import { UsersListComponent } from './components/users-list/users-list.component
 import { AuthGuardService } from './guards/auth-guard-service';
 
 const routes: Routes = [
-  { path: 'user/:id', component: AlbumsListComponent ,canActivate: [AuthGuardService] },
-  { path: '', component: UsersListComponent,canActivate: [AuthGuardService] },
-  {path:'album/:id',component:AlbumPhotosComponent , canActivate: [AuthGuardService]},
-  {path:'login',component:LoginComponent},
+  { path: 'user/:id', component: AlbumsListComponent, canActivate: [AuthGuardService] },
+  { path: '', component: UsersListComponent, canActivate: [AuthGuardService] },
+  { path: 'album/:id', component: AlbumPhotosComponent, canActivate: [AuthGuardService] },
+  { path: 'login', component: LoginComponent },
 ];
+/**
+ * - you might need to add an additional guard, to prevent the user
+ * from (re-visiting/going back to) the login page (in case he/she is already logged in) 
+ */
 
 @NgModule({
   imports: [
